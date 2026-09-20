@@ -15,9 +15,9 @@ for name, category, desc, product_url, photos in products:
     thumbs = ''
     for i, photo in enumerate(photos):
         alt = name + ' — ' + ('商品細節' if i == 0 else '配戴示範')
-        thumbs += f'<button class="thumb" type="button" aria-label="查看{name}第{i+1}張照片" aria-pressed="{str(i == 0).lower()}" data-src="assets/photo-{photo}.jpg" data-alt="{alt}"><img src="assets/photo-{photo}.jpg" alt="" loading="lazy" width="42" height="50"></button>'
+        thumbs += f'<button class="thumb" type="button" aria-label="查看{name}第{i+1}張照片" aria-pressed="{str(i == 0).lower()}" data-src="assets/photo-{photo}.jpg" data-alt="{alt}"><img draggable="false" src="assets/photo-{photo}.jpg" alt="" loading="lazy" width="42" height="50"></button>'
     cards.append(f'''<article class="product">
-<img class="product-image" src="assets/photo-{photos[0]}.jpg" alt="{name} — 商品細節" width="600" height="800" loading="lazy">
+<div class="watermarked product-photo"><img class="product-image" draggable="false" src="assets/photo-{photos[0]}.jpg" alt="{name} — 商品細節" width="600" height="800" loading="lazy"><span class="watermark" aria-hidden="true">初。true</span></div>
 <div class="thumbs" role="group" aria-label="{name}照片">{thumbs}</div>
 <p class="category">{category}</p><h3>{name}</h3><p class="description">{desc}</p>
 <a class="buy" href="{product_url}" target="_blank" rel="noopener noreferrer" aria-label="到蝦皮查看{name}價格與購買（另開分頁）">到蝦皮查看與購買 <span aria-hidden="true">↗</span></a></article>''')
@@ -36,7 +36,7 @@ html = '''<!doctype html>
 <a href="#collection" class="skip">跳到商品列表</a>
 <header class="header"><a class="wordmark" href="#" aria-label="初。true🍃 首頁">初。<i>true</i></a><nav aria-label="主要導覽"><a href="#collection">精選髮飾</a><a href="#about">關於初</a><a class="shop-link" data-shop href="https://s.shopee.tw/qjeM1Vp5d" target="_blank" rel="noopener noreferrer">蝦皮選購 ↗</a></nav></header>
 <main>
-<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow">TRUE · THE LITTLE THINGS</p><h1 id="hero-title">把溫柔與浪漫，<br>藏進每一個<em>日常</em>裡。</h1><p>一朵碎花、一縷飄帶、一個剛剛好的蝴蝶結。<br>讓喜歡的模樣，從髮間悄悄開始。</p><a class="button" href="#collection">找到你的日常髮飾 <span aria-hidden="true">↓</span></a></div><figure class="hero-art"><img class="hero-main" src="assets/photo-22.jpg" alt="奶油粉蝴蝶結點綴半綁髮，搭配溫柔白色洋裝" width="800" height="1000" fetchpriority="high"><img class="hero-detail" src="assets/photo-23.jpg" alt="陽光下的奶油碎花蝴蝶結抓夾" width="400" height="500"><figcaption>A little romance, every day.</figcaption></figure></section>
+<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow">TRUE · THE LITTLE THINGS</p><h1 id="hero-title">把溫柔與浪漫，<br>藏進每一個<em>日常</em>裡。</h1><p>一朵碎花、一縷飄帶、一個剛剛好的蝴蝶結。<br>讓喜歡的模樣，從髮間悄悄開始。</p><a class="button" href="#collection">找到你的日常髮飾 <span aria-hidden="true">↓</span></a></div><figure class="hero-art"><div class="watermarked hero-main"><img class="marked-image" draggable="false" src="assets/photo-22.jpg" alt="奶油粉蝴蝶結點綴半綁髮，搭配溫柔白色洋裝" width="800" height="1000" fetchpriority="high"><span class="watermark" aria-hidden="true">初。true</span></div><div class="watermarked hero-detail"><img class="marked-image" draggable="false" src="assets/photo-23.jpg" alt="陽光下的奶油碎花蝴蝶結抓夾" width="400" height="500"><span class="watermark" aria-hidden="true">初。true</span></div><figcaption>A little romance, every day.</figcaption></figure></section>
 <section id="collection" class="collection" aria-labelledby="collection-title"><div class="section-top"><div><p class="eyebrow">THE COLLECTION / 01—08</p><h2 id="collection-title">從髮間，遇見喜歡的自己</h2></div><p>八款精選髮飾 · 價格與庫存以蝦皮為準</p></div><div class="grid">'''
 html += '\n'.join(cards)
 html += '''</div></section>
