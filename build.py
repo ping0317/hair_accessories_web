@@ -1,4 +1,5 @@
 from pathlib import Path
+import hashlib
 
 products = [
  ('奶油碎花蝴蝶結抓夾','奶油花語','細緻碎花與柔和奶油白，為日常半綁髮添一點浪漫。','https://s.shopee.tw/1AXQeEEav',[23,24,25]),
@@ -43,5 +44,14 @@ html += '''</div></section>
 <section id="about" class="about" aria-labelledby="about-title"><img class="about-logo" src="assets/logo.png" alt="初 true — THE STUDIO" width="500" height="500" loading="lazy"><div><p class="eyebrow" id="about-title">ABOUT TRUE</p><p>想了解款式或搭配？歡迎與我們聊聊。</p></div><a class="button" id="contact-button" href="https://s.shopee.tw/qjeM1Vp5d" target="_blank" rel="noopener noreferrer">到蝦皮詢問髮飾 ↗</a></section>
 </main><footer class="footer"><span>© 初。true🍃 · 把溫柔與浪漫，藏進每一個日常裡。</span><a href="#collection">回到精選髮飾 ↑</a></footer>
 </body></html>'''
-Path(__file__).resolve().parent.joinpath('dist/index.html').write_text(html, encoding='utf-8')
+# Version every stylesheet/script so a normal reload cannot mix old assets with new HTML.
+root = Path(__file__).resolve().parent / 'dist'
+for asset in ['styles.css', 'script.js', 'config.js']:
+    version = hashlib.sha256((root / asset).read_bytes()).hexdigest()[:12]
+    html = html.replace('"' + asset + '"', '"' + asset + '?v=' + version + '"')
+# A local fallback protects images even when a cached script or disabled JS is involved.
+html = html.replace('<img ', '<img oncontextmenu="return false" ondragstart="return false" ')
+html = html.replace('class="watermarked ', 'oncontextmenu="return false" ondragstart="return false" class="watermarked ')
+html = html.replace('class="thumb"', 'oncontextmenu="return false" ondragstart="return false" class="thumb"')
+root.joinpath('index.html').write_text(html, encoding='utf-8')
 print('Built 8 product cards.')

@@ -23,11 +23,14 @@ if (shopUrl) document.querySelectorAll('[data-shop]').forEach(link => { link.hre
 
 // Limit casual image saving while preserving text selection and normal links.
 function isProtectedImage(target) {
-  return target instanceof Element && Boolean(target.closest('img, .watermarked'));
+  return target instanceof Element && Boolean(target.closest('img, .watermarked, .thumb'));
 }
 for (const eventName of ['contextmenu', 'dragstart']) {
   document.addEventListener(eventName, event => {
-    if (isProtectedImage(event.target)) event.preventDefault();
-  });
+    if (isProtectedImage(event.target)) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, { capture: true });
 }
 document.querySelectorAll('img').forEach(image => { image.draggable = false; });
