@@ -1,0 +1,8 @@
+# Keep the repository focused on the publishable website and its source.
+/*
+!/.gitignore
+!/dist/
+!/build.py
+!/README.md
+__pycache__/
+*.pyc
