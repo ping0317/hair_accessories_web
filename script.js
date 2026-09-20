@@ -20,3 +20,14 @@ if (lineUrl) {
 }
 const shopUrl = safeHttps(config.shopeeUrl);
 if (shopUrl) document.querySelectorAll('[data-shop]').forEach(link => { link.href = shopUrl; });
+
+// Limit casual image saving while preserving text selection and normal links.
+function isProtectedImage(target) {
+  return target instanceof Element && Boolean(target.closest('img, .watermarked'));
+}
+for (const eventName of ['contextmenu', 'dragstart']) {
+  document.addEventListener(eventName, event => {
+    if (isProtectedImage(event.target)) event.preventDefault();
+  });
+}
+document.querySelectorAll('img').forEach(image => { image.draggable = false; });
