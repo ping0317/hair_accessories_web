@@ -1,17 +1,17 @@
 from pathlib import Path
 
 products = [
- ('奶油碎花蝴蝶結抓夾','奶油花語','細緻碎花與柔和奶油白，為日常半綁髮添一點浪漫。','44813012567',[23,24,25]),
- ('奶油粉珍珠蝴蝶結抓夾','奶油花語','奶白與淡粉緞帶交織，點綴輕盈的珍珠吊飾。','46113012531',[17,21,22]),
- ('水藍花卉雪紡馬尾夾','奶油花語','清透水藍花卉與長飄帶，陪你走進微風裡。','57912997480',[28,26,27]),
- ('奶杏蕾絲飄帶髮夾','法式浪漫','奶杏緞帶拼接透膚蕾絲，留下溫柔的復古細節。','43882093699',[14,16,15]),
- ('黑色印花蝴蝶結髮夾','法式浪漫','黑底白色印花，為低馬尾與公主頭添上優雅。','24248274324',[5,3,4]),
- ('黑色雪紡大蝴蝶結髮夾','法式浪漫','輕盈透紗與細緻點點，讓經典黑色多一份柔美。','45763025612',[0,2,1]),
- ('奶灰竹葉長飄帶髮夾','水墨竹葉','淡雅竹葉落在奶灰布面，日常也能穿出新中式氣息。','51913000405',[8,7,6,9]),
- ('煙灰竹葉蝴蝶結髮夾','水墨竹葉','水墨般的煙灰紋理，隨飄帶勾勒清雅背影。','45863013588',[11,13,10,12])
+ ('奶油碎花蝴蝶結抓夾','奶油花語','細緻碎花與柔和奶油白，為日常半綁髮添一點浪漫。','https://s.shopee.tw/1AXQeEEav',[23,24,25]),
+ ('奶油粉珍珠蝴蝶結抓夾','奶油花語','奶白與淡粉緞帶交織，點綴輕盈的珍珠吊飾。','https://s.shopee.tw/9AOmLVs8Hj',[17,21,22]),
+ ('水藍花卉雪紡馬尾夾','奶油花語','清透水藍花卉與長飄帶，陪你走進微風裡。','https://s.shopee.tw/2BF20iucpO',[28,26,27]),
+ ('奶杏蕾絲飄帶髮夾','法式浪漫','奶杏緞帶拼接透膚蕾絲，留下溫柔的復古細節。','https://s.shopee.tw/AKajjfikZ3',[14,16,15]),
+ ('黑色印花蝴蝶結髮夾','法式浪漫','黑底白色印花，為低馬尾與公主頭添上優雅。','https://s.shopee.tw/6L4ayKoqKe',[5,3,4]),
+ ('黑色雪紡大蝴蝶結髮夾','法式浪漫','輕盈透紗與細緻點點，讓經典黑色多一份柔美。','https://s.shopee.tw/4LJWafj3ml',[0,2,1]),
+ ('奶灰竹葉長飄帶髮夾','水墨竹葉','淡雅竹葉落在奶灰布面，日常也能穿出新中式氣息。','https://s.shopee.tw/50ZDNuFVv9',[8,7,6,9]),
+ ('煙灰竹葉蝴蝶結髮夾','水墨竹葉','水墨般的煙灰紋理，隨飄帶勾勒清雅背影。','https://s.shopee.tw/1qcBc68oGw',[11,13,10,12])
 ]
 cards = []
-for name, category, desc, pid, photos in products:
+for name, category, desc, product_url, photos in products:
     thumbs = ''
     for i, photo in enumerate(photos):
         alt = name + ' — ' + ('商品細節' if i == 0 else '配戴示範')
@@ -20,7 +20,7 @@ for name, category, desc, pid, photos in products:
 <img class="product-image" src="assets/photo-{photos[0]}.jpg" alt="{name} — 商品細節" width="600" height="800" loading="lazy">
 <div class="thumbs" role="group" aria-label="{name}照片">{thumbs}</div>
 <p class="category">{category}</p><h3>{name}</h3><p class="description">{desc}</p>
-<a class="buy" href="https://shopee.tw/product/26534864/{pid}" target="_blank" rel="noopener noreferrer" aria-label="到蝦皮查看{name}價格與購買（另開分頁）">到蝦皮查看與購買 <span aria-hidden="true">↗</span></a></article>''')
+<a class="buy" href="{product_url}" target="_blank" rel="noopener noreferrer" aria-label="到蝦皮查看{name}價格與購買（另開分頁）">到蝦皮查看與購買 <span aria-hidden="true">↗</span></a></article>''')
 
 html = '''<!doctype html>
 <html lang="zh-Hant">
@@ -40,7 +40,7 @@ html = '''<!doctype html>
 <section id="collection" class="collection" aria-labelledby="collection-title"><div class="section-top"><div><p class="eyebrow">THE COLLECTION / 01—08</p><h2 id="collection-title">從髮間，遇見喜歡的自己</h2></div><p>八款精選髮飾 · 價格與庫存以蝦皮為準</p></div><div class="grid">'''
 html += '\n'.join(cards)
 html += '''</div></section>
-<section id="about" class="about" aria-labelledby="about-title"><img class="about-logo" src="assets/logo.png" alt="初 true — THE STUDIO" width="500" height="500" loading="lazy"><div><p class="eyebrow">ABOUT TRUE</p><h2 id="about-title">留一點浪漫，給日常的自己。</h2><p>初。true🍃 挑選溫柔又有細節的髮飾，<br>從奶油碎花、法式蕾絲，到清雅的水墨竹葉。<br>陪你把平凡的一天，打扮成自己喜歡的樣子。</p><p>想了解款式或搭配？歡迎與我們聊聊。</p></div><a class="button" id="contact-button" href="https://s.shopee.tw/qjeM1Vp5d" target="_blank" rel="noopener noreferrer">到蝦皮詢問髮飾 ↗</a></section>
+<section id="about" class="about" aria-labelledby="about-title"><img class="about-logo" src="assets/logo.png" alt="初 true — THE STUDIO" width="500" height="500" loading="lazy"><div><p class="eyebrow" id="about-title">ABOUT TRUE</p><p>想了解款式或搭配？歡迎與我們聊聊。</p></div><a class="button" id="contact-button" href="https://s.shopee.tw/qjeM1Vp5d" target="_blank" rel="noopener noreferrer">到蝦皮詢問髮飾 ↗</a></section>
 </main><footer class="footer"><span>© 初。true🍃 · 把溫柔與浪漫，藏進每一個日常裡。</span><a href="#collection">回到精選髮飾 ↑</a></footer>
 </body></html>'''
 Path(__file__).resolve().parent.joinpath('dist/index.html').write_text(html, encoding='utf-8')

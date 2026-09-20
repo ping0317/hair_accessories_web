@@ -22,7 +22,7 @@ Use a fresh temporary branch name for each release. GitHub Pages publishes updat
 
 - LINE：在 `dist/config.js` 填入 `lineUrl`，例如官方提供的 `https://lin.ee/...`；頁尾詢問按鈕會改為 LINE。尚未設定時使用蝦皮詢問入口，不顯示無效按鈕。
 - 賣場：同一設定檔的 `shopeeUrl`。
-- 商品：可修改 `build.py` 商品清單及文案，再執行 `python build.py` 產生 `dist/index.html`；發布時不需執行建置。商品連結依提供的賣家 ID 與 Excel 商品 ID 組成，需在可登入蝦皮的瀏覽器確認商品落點。
+- 商品：可修改 `build.py` 商品清單及文案，再執行 `python build.py` 產生 `dist/index.html`；發布時不需執行建置。Product URLs use the owner-provided Shopee short links.
 - 圖片：`dist/assets/` 是縮小與壓縮後的網站用圖，原始圖片保留不變。奶油粉資料夾內重複的黑色印花照片只用於黑色印花商品。
 - 價格與庫存：以蝦皮頁面為準，本站不保留價格。
 
