@@ -6,14 +6,14 @@ import xml.etree.ElementTree as ET
 from datetime import date
 
 products = [
- ('奶油碎花蝴蝶結抓夾','奶油花語','細緻碎花與柔和奶油白，為日常半綁髮添一點浪漫。','https://s.shopee.tw/1AXQeEEav',[23,24,25]),
- ('奶油粉珍珠蝴蝶結抓夾','奶油花語','奶白與淡粉緞帶交織，點綴輕盈的珍珠吊飾。','https://s.shopee.tw/9AOmLVs8Hj',[17,21,22]),
- ('水藍花卉雪紡馬尾夾','奶油花語','清透水藍花卉與長飄帶，陪你走進微風裡。','https://s.shopee.tw/2BF20iucpO',[28,26,27]),
- ('奶杏蕾絲飄帶髮夾','法式浪漫','奶杏緞帶拼接透膚蕾絲，留下溫柔的復古細節。','https://s.shopee.tw/AKajjfikZ3',[14,16,15]),
- ('黑色印花蝴蝶結髮夾','法式浪漫','黑底白色印花，為低馬尾與公主頭添上優雅。','https://s.shopee.tw/6L4ayKoqKe',[5,3,4]),
- ('黑色雪紡大蝴蝶結髮夾','法式浪漫','輕盈透紗與細緻點點，讓經典黑色多一份柔美。','https://s.shopee.tw/4LJWafj3ml',[0,2,1]),
- ('奶灰竹葉長飄帶髮夾','水墨竹葉','淡雅竹葉落在奶灰布面，日常也能穿出新中式氣息。','https://s.shopee.tw/50ZDNuFVv9',[8,7,6,9]),
- ('煙灰竹葉蝴蝶結髮夾','水墨竹葉','水墨般的煙灰紋理，隨飄帶勾勒清雅背影。','https://s.shopee.tw/1qcBc68oGw',[11,13,10,12])
+ ('奶油碎花蝴蝶結抓夾','奶油花語','細緻碎花與柔和奶油白，為日常半綁髮添一點浪漫。','https://s.shopee.tw/50ZQANp1xv?share_channel_code=6',[23,24,25]),
+ ('奶油粉珍珠蝴蝶結抓夾','奶油花語','奶白與淡粉緞帶交織，點綴輕盈的珍珠吊飾。','https://s.shopee.tw/BUAPWAOZN?share_channel_code=6',[17,21,22]),
+ ('水藍花卉雪紡馬尾夾','奶油花語','清透水藍花卉與長飄帶，陪你走進微風裡。','https://s.shopee.tw/8V9IKvBzEe?share_channel_code=6',[28,26,27]),
+ ('奶杏蕾絲飄帶髮夾','法式浪漫','奶杏緞帶拼接透膚蕾絲，留下溫柔的復古細節。','https://s.shopee.tw/1AkDDsL83?share_channel_code=6',[14,16,15]),
+ ('黑色印花蝴蝶結髮夾','法式浪漫','黑底白色印花，為低馬尾與公主頭添上優雅。','https://s.shopee.tw/4fwZloK0zW?share_channel_code=6',[5,3,4]),
+ ('黑色雪紡大蝴蝶結髮夾','法式浪漫','輕盈透紗與細緻點點，讓經典黑色多一份柔美。','https://s.shopee.tw/1BMhbOEiYa?share_channel_code=6',[0,2,1]),
+ ('奶灰竹葉長飄帶髮夾','水墨竹葉','淡雅竹葉落在奶灰布面，日常也能穿出新中式氣息。','https://s.shopee.tw/BUAPYv9xC?share_channel_code=6',[8,7,6,9]),
+ ('煙灰竹葉蝴蝶結髮夾','水墨竹葉','水墨般的煙灰紋理，隨飄帶勾勒清雅背影。','https://s.shopee.tw/6VODxEEzBK?share_channel_code=6',[11,13,10,12])
 ]
 cards = []
 for name, category, desc, product_url, photos in products:
