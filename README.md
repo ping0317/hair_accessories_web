@@ -31,7 +31,7 @@ Use a fresh temporary branch name for each release. GitHub Pages publishes updat
 
 ## 搜尋收錄與 SEO
 
-首頁具有 canonical、搜尋摘要、Organization / CollectionPage / ItemList JSON-LD 與圖片 sitemap。商品價格與庫存由蝦皮提供，因此不建立虛構的 Offer、評分或評論，也不宣稱具備 Google 商品複合搜尋結果資格。
+首頁具有 canonical、搜尋摘要、Organization / CollectionPage / ItemList JSON-LD 與標準 XML sitemap。商品價格與庫存由蝦皮提供，因此不建立虛構的 Offer、評分或評論，也不宣稱具備 Google 商品複合搜尋結果資格。
 
 ### Google Search Console
 

@@ -3,6 +3,7 @@ import hashlib
 import json
 from html import escape
 import xml.etree.ElementTree as ET
+from datetime import date
 
 products = [
  ('奶油碎花蝴蝶結抓夾','奶油花語','細緻碎花與柔和奶油白，為日常半綁髮添一點浪漫。','https://s.shopee.tw/1AXQeEEav',[23,24,25]),
@@ -86,15 +87,11 @@ if verification_path.exists():
         seo_head += f'<meta name="google-site-verification" content="{escape(token, quote=True)}">\n'
 html = html.replace('</head>', seo_head + '</head>')
 ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
-image_ns = 'http://www.google.com/schemas/sitemap-image/1.1'
 ET.register_namespace('', ns)
-ET.register_namespace('image', image_ns)
 sitemap = ET.Element(f'{{{ns}}}urlset')
 entry = ET.SubElement(sitemap, f'{{{ns}}}url')
 ET.SubElement(entry, f'{{{ns}}}loc').text = site_url
-for photo in sorted({photo for product in products for photo in product[4]}):
-    image_entry = ET.SubElement(entry, f'{{{image_ns}}}image')
-    ET.SubElement(image_entry, f'{{{image_ns}}}loc').text = site_url + f'assets/photo-{photo}.jpg'
+ET.SubElement(entry, f'{{{ns}}}lastmod').text = date.today().isoformat()
 ET.ElementTree(sitemap).write(Path(__file__).resolve().parent / 'dist/sitemap.xml', encoding='utf-8', xml_declaration=True)
 
 # Version every stylesheet/script so a normal reload cannot mix old assets with new HTML.
