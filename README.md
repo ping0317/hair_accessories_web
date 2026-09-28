@@ -37,7 +37,7 @@ Use a fresh temporary branch name for each release. GitHub Pages publishes updat
 
 1. 新增「網址前置字元」資源：`https://ping0317.github.io/hair_accessories_web/`。
 2. 使用 HTML 標記驗證。將 Google 提供的 content 值填入專案根目錄 `search-console-verification.txt`，執行 `python build.py` 並發布。驗證碼會出现在公開 HTML，屬於 Google 所要求的公開驗證資料。
-3. 返回 Search Console 驗證，提交 `https://ping0317.github.io/hair_accessories_web/sitemap.xml`。
+3. 返回 Search Console 驗證，提交 `https://ping0317.github.io/hair_accessories_web/sitemap-v2.xml`。
 4. 使用網址審查檢查首頁，測試即時網址後按「要求建立索引」。記錄 Google 選用的標準網址與收錄狀態。
 5. 收錄後觀察「成效」中的實際查詢字詞、曝光、點擊與排名，再決定需要哪些有實質商品資訊的專頁。
 
