@@ -95,6 +95,7 @@ ET.SubElement(entry, f'{{{ns}}}lastmod').text = date.today().isoformat()
 sitemap_tree = ET.ElementTree(sitemap)
 for sitemap_name in ['sitemap.xml', 'sitemap-v2.xml']:
     sitemap_tree.write(Path(__file__).resolve().parent / 'dist' / sitemap_name, encoding='utf-8', xml_declaration=True)
+(Path(__file__).resolve().parent / 'dist/sitemap.txt').write_text(site_url + '\n', encoding='utf-8')
 
 # Version every stylesheet/script so a normal reload cannot mix old assets with new HTML.
 root = Path(__file__).resolve().parent / 'dist'
